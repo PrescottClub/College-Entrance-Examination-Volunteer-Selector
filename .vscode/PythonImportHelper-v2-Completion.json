@@ -257,6 +257,14 @@
         "documentation": {}
     },
     {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
         "label": "pandas",
         "kind": 6,
         "isExtraImport": true,
@@ -449,7 +457,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "UPLOAD_FOLDER = 'static/uploads'\nMAX_FILE_SIZE = 16 * 1024 * 1024  # 16MB\nALLOWED_EXTENSIONS = {'xlsx', 'xls'}\n# 推荐阈值配置\nRISK_THRESHOLD_CHONG = -0.05  # 冲线阈值 (位次差异百分比)\nRISK_THRESHOLD_WEN = 0.05     # 稳线阈值\n# DeepSeek API 配置\nDEEPSEEK_API_KEY = \"sk-e3788bb3810746c0bf9779e2510dd7aa\"\nDEEPSEEK_BASE_URL = \"https://api.deepseek.com\"\nDEEPSEEK_MODEL = \"deepseek-chat\"  # 或者使用 \"deepseek-reasoner\" 来使用R1模型",
+        "peekOfCode": "UPLOAD_FOLDER = 'static/uploads'\nMAX_FILE_SIZE = 16 * 1024 * 1024  # 16MB\nALLOWED_EXTENSIONS = {'xlsx', 'xls'}\n# 推荐阈值配置\nRISK_THRESHOLD_CHONG = -0.05  # 冲线阈值 (位次差异百分比)\nRISK_THRESHOLD_WEN = 0.05     # 稳线阈值\n# DeepSeek API 配置 - 使用环境变量保护API密钥\nDEEPSEEK_API_KEY = os.getenv('DEEPSEEK_API_KEY', '')  # 从环境变量获取，如果没有则为空\nDEEPSEEK_BASE_URL = os.getenv('DEEPSEEK_BASE_URL', 'https://api.deepseek.com')\nDEEPSEEK_MODEL = os.getenv('DEEPSEEK_MODEL', 'deepseek-chat')  # 或者使用 \"deepseek-reasoner\" 来使用R1模型",
         "detail": "config",
         "documentation": {}
     },
@@ -458,7 +466,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "MAX_FILE_SIZE = 16 * 1024 * 1024  # 16MB\nALLOWED_EXTENSIONS = {'xlsx', 'xls'}\n# 推荐阈值配置\nRISK_THRESHOLD_CHONG = -0.05  # 冲线阈值 (位次差异百分比)\nRISK_THRESHOLD_WEN = 0.05     # 稳线阈值\n# DeepSeek API 配置\nDEEPSEEK_API_KEY = \"sk-e3788bb3810746c0bf9779e2510dd7aa\"\nDEEPSEEK_BASE_URL = \"https://api.deepseek.com\"\nDEEPSEEK_MODEL = \"deepseek-chat\"  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表",
+        "peekOfCode": "MAX_FILE_SIZE = 16 * 1024 * 1024  # 16MB\nALLOWED_EXTENSIONS = {'xlsx', 'xls'}\n# 推荐阈值配置\nRISK_THRESHOLD_CHONG = -0.05  # 冲线阈值 (位次差异百分比)\nRISK_THRESHOLD_WEN = 0.05     # 稳线阈值\n# DeepSeek API 配置 - 使用环境变量保护API密钥\nDEEPSEEK_API_KEY = os.getenv('DEEPSEEK_API_KEY', '')  # 从环境变量获取，如果没有则为空\nDEEPSEEK_BASE_URL = os.getenv('DEEPSEEK_BASE_URL', 'https://api.deepseek.com')\nDEEPSEEK_MODEL = os.getenv('DEEPSEEK_MODEL', 'deepseek-chat')  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表",
         "detail": "config",
         "documentation": {}
     },
@@ -467,7 +475,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "ALLOWED_EXTENSIONS = {'xlsx', 'xls'}\n# 推荐阈值配置\nRISK_THRESHOLD_CHONG = -0.05  # 冲线阈值 (位次差异百分比)\nRISK_THRESHOLD_WEN = 0.05     # 稳线阈值\n# DeepSeek API 配置\nDEEPSEEK_API_KEY = \"sk-e3788bb3810746c0bf9779e2510dd7aa\"\nDEEPSEEK_BASE_URL = \"https://api.deepseek.com\"\nDEEPSEEK_MODEL = \"deepseek-chat\"  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [",
+        "peekOfCode": "ALLOWED_EXTENSIONS = {'xlsx', 'xls'}\n# 推荐阈值配置\nRISK_THRESHOLD_CHONG = -0.05  # 冲线阈值 (位次差异百分比)\nRISK_THRESHOLD_WEN = 0.05     # 稳线阈值\n# DeepSeek API 配置 - 使用环境变量保护API密钥\nDEEPSEEK_API_KEY = os.getenv('DEEPSEEK_API_KEY', '')  # 从环境变量获取，如果没有则为空\nDEEPSEEK_BASE_URL = os.getenv('DEEPSEEK_BASE_URL', 'https://api.deepseek.com')\nDEEPSEEK_MODEL = os.getenv('DEEPSEEK_MODEL', 'deepseek-chat')  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [",
         "detail": "config",
         "documentation": {}
     },
@@ -476,7 +484,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "RISK_THRESHOLD_CHONG = -0.05  # 冲线阈值 (位次差异百分比)\nRISK_THRESHOLD_WEN = 0.05     # 稳线阈值\n# DeepSeek API 配置\nDEEPSEEK_API_KEY = \"sk-e3788bb3810746c0bf9779e2510dd7aa\"\nDEEPSEEK_BASE_URL = \"https://api.deepseek.com\"\nDEEPSEEK_MODEL = \"deepseek-chat\"  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [\n    '北京大学', '清华大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',\n    '中国人民大学', '北京师范大学', '北京理工大学', '北京航空航天大学',",
+        "peekOfCode": "RISK_THRESHOLD_CHONG = -0.05  # 冲线阈值 (位次差异百分比)\nRISK_THRESHOLD_WEN = 0.05     # 稳线阈值\n# DeepSeek API 配置 - 使用环境变量保护API密钥\nDEEPSEEK_API_KEY = os.getenv('DEEPSEEK_API_KEY', '')  # 从环境变量获取，如果没有则为空\nDEEPSEEK_BASE_URL = os.getenv('DEEPSEEK_BASE_URL', 'https://api.deepseek.com')\nDEEPSEEK_MODEL = os.getenv('DEEPSEEK_MODEL', 'deepseek-chat')  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [\n    '北京大学', '清华大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',\n    '中国人民大学', '北京师范大学', '北京理工大学', '北京航空航天大学',",
         "detail": "config",
         "documentation": {}
     },
@@ -485,7 +493,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "RISK_THRESHOLD_WEN = 0.05     # 稳线阈值\n# DeepSeek API 配置\nDEEPSEEK_API_KEY = \"sk-e3788bb3810746c0bf9779e2510dd7aa\"\nDEEPSEEK_BASE_URL = \"https://api.deepseek.com\"\nDEEPSEEK_MODEL = \"deepseek-chat\"  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [\n    '北京大学', '清华大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',\n    '中国人民大学', '北京师范大学', '北京理工大学', '北京航空航天大学',\n    '中国农业大学', '北京科技大学', '华中科技大学', '武汉大学', '华南理工大学',",
+        "peekOfCode": "RISK_THRESHOLD_WEN = 0.05     # 稳线阈值\n# DeepSeek API 配置 - 使用环境变量保护API密钥\nDEEPSEEK_API_KEY = os.getenv('DEEPSEEK_API_KEY', '')  # 从环境变量获取，如果没有则为空\nDEEPSEEK_BASE_URL = os.getenv('DEEPSEEK_BASE_URL', 'https://api.deepseek.com')\nDEEPSEEK_MODEL = os.getenv('DEEPSEEK_MODEL', 'deepseek-chat')  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [\n    '北京大学', '清华大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',\n    '中国人民大学', '北京师范大学', '北京理工大学', '北京航空航天大学',\n    '中国农业大学', '北京科技大学', '华中科技大学', '武汉大学', '华南理工大学',",
         "detail": "config",
         "documentation": {}
     },
@@ -494,7 +502,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "DEEPSEEK_API_KEY = \"sk-e3788bb3810746c0bf9779e2510dd7aa\"\nDEEPSEEK_BASE_URL = \"https://api.deepseek.com\"\nDEEPSEEK_MODEL = \"deepseek-chat\"  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [\n    '北京大学', '清华大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',\n    '中国人民大学', '北京师范大学', '北京理工大学', '北京航空航天大学',\n    '中国农业大学', '北京科技大学', '华中科技大学', '武汉大学', '华南理工大学',\n    '中山大学', '西安交通大学', '哈尔滨工业大学', '天津大学', '南开大学',\n    '山东大学', '中南大学', '湖南大学', '四川大学', '重庆大学', '电子科技大学',",
+        "peekOfCode": "DEEPSEEK_API_KEY = os.getenv('DEEPSEEK_API_KEY', '')  # 从环境变量获取，如果没有则为空\nDEEPSEEK_BASE_URL = os.getenv('DEEPSEEK_BASE_URL', 'https://api.deepseek.com')\nDEEPSEEK_MODEL = os.getenv('DEEPSEEK_MODEL', 'deepseek-chat')  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [\n    '北京大学', '清华大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',\n    '中国人民大学', '北京师范大学', '北京理工大学', '北京航空航天大学',\n    '中国农业大学', '北京科技大学', '华中科技大学', '武汉大学', '华南理工大学',\n    '中山大学', '西安交通大学', '哈尔滨工业大学', '天津大学', '南开大学',\n    '山东大学', '中南大学', '湖南大学', '四川大学', '重庆大学', '电子科技大学',",
         "detail": "config",
         "documentation": {}
     },
@@ -503,7 +511,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "DEEPSEEK_BASE_URL = \"https://api.deepseek.com\"\nDEEPSEEK_MODEL = \"deepseek-chat\"  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [\n    '北京大学', '清华大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',\n    '中国人民大学', '北京师范大学', '北京理工大学', '北京航空航天大学',\n    '中国农业大学', '北京科技大学', '华中科技大学', '武汉大学', '华南理工大学',\n    '中山大学', '西安交通大学', '哈尔滨工业大学', '天津大学', '南开大学',\n    '山东大学', '中南大学', '湖南大学', '四川大学', '重庆大学', '电子科技大学',\n    '西北工业大学', '兰州大学', '东北大学', '大连理工大学', '吉林大学',",
+        "peekOfCode": "DEEPSEEK_BASE_URL = os.getenv('DEEPSEEK_BASE_URL', 'https://api.deepseek.com')\nDEEPSEEK_MODEL = os.getenv('DEEPSEEK_MODEL', 'deepseek-chat')  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [\n    '北京大学', '清华大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',\n    '中国人民大学', '北京师范大学', '北京理工大学', '北京航空航天大学',\n    '中国农业大学', '北京科技大学', '华中科技大学', '武汉大学', '华南理工大学',\n    '中山大学', '西安交通大学', '哈尔滨工业大学', '天津大学', '南开大学',\n    '山东大学', '中南大学', '湖南大学', '四川大学', '重庆大学', '电子科技大学',\n    '西北工业大学', '兰州大学', '东北大学', '大连理工大学', '吉林大学',",
         "detail": "config",
         "documentation": {}
     },
@@ -512,7 +520,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "DEEPSEEK_MODEL = \"deepseek-chat\"  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [\n    '北京大学', '清华大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',\n    '中国人民大学', '北京师范大学', '北京理工大学', '北京航空航天大学',\n    '中国农业大学', '北京科技大学', '华中科技大学', '武汉大学', '华南理工大学',\n    '中山大学', '西安交通大学', '哈尔滨工业大学', '天津大学', '南开大学',\n    '山东大学', '中南大学', '湖南大学', '四川大学', '重庆大学', '电子科技大学',\n    '西北工业大学', '兰州大学', '东北大学', '大连理工大学', '吉林大学',\n    '厦门大学', '同济大学', '东南大学', '中国海洋大学', '西北农林科技大学',",
+        "peekOfCode": "DEEPSEEK_MODEL = os.getenv('DEEPSEEK_MODEL', 'deepseek-chat')  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [\n    '北京大学', '清华大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',\n    '中国人民大学', '北京师范大学', '北京理工大学', '北京航空航天大学',\n    '中国农业大学', '北京科技大学', '华中科技大学', '武汉大学', '华南理工大学',\n    '中山大学', '西安交通大学', '哈尔滨工业大学', '天津大学', '南开大学',\n    '山东大学', '中南大学', '湖南大学', '四川大学', '重庆大学', '电子科技大学',\n    '西北工业大学', '兰州大学', '东北大学', '大连理工大学', '吉林大学',\n    '厦门大学', '同济大学', '东南大学', '中国海洋大学', '西北农林科技大学',",
         "detail": "config",
         "documentation": {}
     },

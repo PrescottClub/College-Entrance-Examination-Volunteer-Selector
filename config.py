@@ -1,4 +1,8 @@
 import os
+from dotenv import load_dotenv
+
+# 加载 .env 文件中的环境变量
+load_dotenv()
 
 # 基础配置
 UPLOAD_FOLDER = 'static/uploads'
@@ -9,10 +13,10 @@ ALLOWED_EXTENSIONS = {'xlsx', 'xls'}
 RISK_THRESHOLD_CHONG = -0.05  # 冲线阈值 (位次差异百分比)
 RISK_THRESHOLD_WEN = 0.05     # 稳线阈值
 
-# DeepSeek API 配置
-DEEPSEEK_API_KEY = "sk-e3788bb3810746c0bf9779e2510dd7aa"
-DEEPSEEK_BASE_URL = "https://api.deepseek.com"
-DEEPSEEK_MODEL = "deepseek-chat"  # 或者使用 "deepseek-reasoner" 来使用R1模型
+# DeepSeek API 配置 - 使用环境变量保护API密钥
+DEEPSEEK_API_KEY = os.getenv('DEEPSEEK_API_KEY', '')  # 从环境变量获取，如果没有则为空
+DEEPSEEK_BASE_URL = os.getenv('DEEPSEEK_BASE_URL', 'https://api.deepseek.com')
+DEEPSEEK_MODEL = os.getenv('DEEPSEEK_MODEL', 'deepseek-chat')  # 或者使用 "deepseek-reasoner" 来使用R1模型
 
 # 985院校列表
 SCHOOLS_985 = [
