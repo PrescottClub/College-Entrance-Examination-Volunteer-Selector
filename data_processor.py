@@ -375,10 +375,13 @@ class DataProcessor:
                     # 确保plan_count是数值类型
                     self.plan_df['plan_count_numeric'] = pd.to_numeric(self.plan_df['plan_count'], errors='coerce').fillna(0)
 
+                    # 改进：保留更多专业详情，不过度聚合
                     plan_for_merge = self.plan_df.groupby(['school_name', 'extracted_major_group']).agg({
-                        'major_name': lambda x: ', '.join(x.unique()),  # 合并专业名称
-                        'track': 'first',                               # 取第一个科目
-                        'plan_count_numeric': 'sum'                     # 计划人数求和
+                        'major_name': lambda x: ' | '.join(x.unique()[:10]),  # 保留更多专业名称
+                        'track': 'first',                                     # 取第一个科目
+                        'plan_count_numeric': 'sum',                          # 计划人数求和
+                        'batch': 'first',                                     # 批次信息
+                        'tuition': 'first'                                    # 学费信息
                     }).reset_index()
 
                     # 重命名回plan_count

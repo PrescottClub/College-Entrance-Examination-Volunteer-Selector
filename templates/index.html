@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>高考志愿规划助手</title>
+    <!-- 书本图标作为favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container-fluid">
-        <h1 class="text-center my-4">🎓 高考志愿规划助手 <small class="text-muted">AI智能版</small></h1>
+        <div class="text-center mb-4">
+            <h1 class="mb-2">🎓 高考志愿规划助手</h1>
+            <p class="text-muted fs-5">基于AI智能分析，为您提供科学的志愿填报建议</p>
+        </div>
         
         <!-- 步骤指示器 -->
         <div class="row mb-4">
@@ -29,9 +35,9 @@
             <!-- 左侧：文件上传和参数输入 -->
             <div class="col-md-4">
                 <!-- 文件上传区域 -->
-                <div class="card mb-3">
+                <div class="card mb-4">
                     <div class="card-header">
-                        <h5>📁 数据文件上传</h5>
+                        <h5><i class="fas fa-upload me-2"></i>数据文件上传</h5>
                     </div>
                     <div class="card-body">
                         <form id="uploadForm" enctype="multipart/form-data">
@@ -54,23 +60,20 @@
                 </div>
 
                 <!-- 参数输入区域 -->
-                <div class="card mb-3">
+                <div class="card mb-4">
                     <div class="card-header">
-                        <h5>📊 考生信息</h5>
+                        <h5><i class="fas fa-user-graduate me-2"></i>考生信息</h5>
                     </div>
                     <div class="card-body">
                         <div class="mb-3">
-                            <label class="form-label">位次 *</label>
-                            <input type="number" id="userRank" class="form-control" placeholder="请输入你的位次">
-                            <small class="text-muted">或者输入分数自动转换</small>
+                            <label class="form-label">2025年高考分数 *</label>
+                            <input type="number" id="userScore" class="form-control" placeholder="请输入你的2025年高考分数">
                         </div>
-                        
+
                         <div class="mb-3">
-                            <label class="form-label">分数转位次</label>
-                            <div class="input-group">
-                                <input type="number" id="userScore" class="form-control" placeholder="输入分数">
-                                <button class="btn btn-outline-secondary" id="convertBtn">转换</button>
-                            </div>
+                            <label class="form-label">2025年位次 *</label>
+                            <input type="number" id="userRank" class="form-control" placeholder="请输入你的2025年位次">
+                            <small class="text-muted">基于2024年数据预测2025年志愿填报</small>
                         </div>
 
                         <div class="mb-3">
@@ -94,14 +97,16 @@
                             </div>
                         </div>
 
-                        <button id="recommendBtn" class="btn btn-success w-100" disabled>获取推荐</button>
+                        <button id="recommendBtn" class="btn btn-success w-100" disabled>
+                            <span id="btnText">请先上传数据文件</span>
+                        </button>
                     </div>
                 </div>
 
                 <!-- AI状态指示器 -->
-                <div class="card mb-3">
+                <div class="card mb-4">
                     <div class="card-header">
-                        <h5>🤖 AI状态</h5>
+                        <h5><i class="fas fa-robot me-2"></i>AI状态</h5>
                     </div>
                     <div class="card-body">
                         <div id="aiStatus">
@@ -115,8 +120,8 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5>🎯 推荐结果</h5>
-                        <div id="resultSummary" class="text-muted small"></div>
+                        <h5><i class="fas fa-bullseye me-2"></i>推荐结果</h5>
+                        <div id="resultSummary" class="text-muted small mt-1"></div>
                     </div>
                     <div class="card-body">
                         <div id="loadingIndicator" class="text-center d-none">
@@ -133,12 +138,12 @@
 
                         <!-- AI策略建议 -->
                         <div id="aiStrategy" class="d-none mb-4">
-                            <div class="card bg-light">
-                                <div class="card-header">
-                                    <h6 class="mb-0">🤖 AI志愿填报策略建议</h6>
+                            <div class="card border-primary">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0"><i class="fas fa-robot me-2"></i>AI志愿填报策略建议</h6>
                                 </div>
-                                <div class="card-body" id="strategyContent">
-                                    <div class="spinner-border spinner-border-sm"></div> AI正在分析中...
+                                <div class="card-body bg-light" id="strategyContent" style="max-height: 600px; overflow-y: auto;">
+                                    <div class="spinner-border spinner-border-sm text-primary"></div> AI正在分析中...
                                 </div>
                             </div>
                         </div>
@@ -183,9 +188,9 @@
         <div class="modal fade" id="majorAnalysisModal" tabindex="-1">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">🤖 AI专业分析</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title"><i class="fas fa-robot me-2"></i>AI专业分析</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="关闭"></button>
                     </div>
                     <div class="modal-body">
                         <div id="majorAnalysisContent">
@@ -199,7 +204,7 @@
         <!-- 免责声明 -->
         <div class="alert alert-warning mt-4" role="alert">
             <h6>⚠️ 免责声明</h6>
-            <p class="mb-0">本系统基于2024年数据进行预测，AI分析仅供参考。实际录取情况可能存在3-7%波动。最终请以广西招生考试院官方投档线为准。</p>
+            <p class="mb-0">本系统基于2024年历史数据对2025年志愿填报进行预测分析，AI分析仅供参考。实际录取情况可能因政策变化、招生计划调整等因素产生差异。最终请以广西招生考试院官方发布的2025年投档线为准。</p>
         </div>
     </div>
 
@@ -248,6 +253,7 @@
                     statusDiv.innerHTML = '<div class="alert alert-success">' + result.message + '</div>';
                     dataLoaded = true;
                     document.getElementById('recommendBtn').disabled = false;
+                    document.getElementById('btnText').textContent = '获取推荐';
                     document.getElementById('step1').classList.add('completed');
                     document.getElementById('step2').classList.add('active');
                 } else {
@@ -258,52 +264,47 @@
             }
         });
 
-        // 分数转位次
-        document.getElementById('convertBtn').addEventListener('click', async function() {
-            if (!dataLoaded) {
-                alert('请先上传数据文件');
-                return;
-            }
-            
-            const score = document.getElementById('userScore').value;
-            if (!score) {
-                alert('请输入分数');
-                return;
-            }
-            
-            try {
-                const response = await fetch('/score_to_rank', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        score: parseInt(score),
-                        track: document.getElementById('track').value
-                    })
-                });
-                
-                const result = await response.json();
-                
-                if (result.success) {
-                    document.getElementById('userRank').value = result.rank;
-                } else {
-                    alert(result.message);
-                }
-            } catch (error) {
-                alert('转换失败: ' + error.message);
-            }
-        });
+
 
         // 获取推荐
         document.getElementById('recommendBtn').addEventListener('click', async function() {
+            // 检查是否已上传数据
+            if (!dataLoaded) {
+                alert('请先上传数据文件（一分一档表、最低分数线、招生计划）');
+                return;
+            }
+
+            const score = document.getElementById('userScore').value;
             const rank = document.getElementById('userRank').value;
             const track = document.getElementById('track').value;
-            
-            if (!rank) {
-                alert('请输入位次');
+
+            // 检查分数输入
+            if (!score || score.trim() === '') {
+                alert('请输入2025年高考分数');
+                return;
+            }
+
+            // 检查位次输入
+            if (!rank || rank.trim() === '') {
+                alert('请输入2025年位次');
+                return;
+            }
+
+            // 验证分数是否为有效数字
+            const scoreNum = parseInt(score);
+            if (isNaN(scoreNum) || scoreNum <= 0) {
+                alert('请输入有效的分数（正整数）');
+                return;
+            }
+
+            // 验证位次是否为有效数字
+            const rankNum = parseInt(rank);
+            if (isNaN(rankNum) || rankNum <= 0) {
+                alert('请输入有效的位次（正整数）');
                 return;
             }
             
-            currentUserRank = parseInt(rank);
+            currentUserRank = rankNum;
             
             // 显示加载指示器
             document.getElementById('loadingIndicator').classList.remove('d-none');
@@ -311,7 +312,7 @@
             document.getElementById('aiStrategy').classList.add('d-none');
             
             const filters = {
-                rank: parseInt(rank),
+                rank: rankNum,
                 track: track,
                 is_985: document.getElementById('is985').checked,
                 is_211: document.getElementById('is211').checked
@@ -333,7 +334,7 @@
                     
                     // 显示AI策略建议
                     if (result.strategy) {
-                        document.getElementById('strategyContent').innerHTML = result.strategy.replace(/\n/g, '<br>');
+                        document.getElementById('strategyContent').innerHTML = formatMarkdownContent(result.strategy);
                         document.getElementById('aiStrategy').classList.remove('d-none');
                     }
                     
@@ -444,10 +445,10 @@
                 const result = await response.json();
                 
                 if (result.success) {
-                    document.getElementById('majorAnalysisContent').innerHTML = 
-                        '<div class="alert alert-info">' + result.analysis.replace(/\n/g, '<br>') + '</div>';
+                    document.getElementById('majorAnalysisContent').innerHTML =
+                        '<div class="alert alert-info border-0 bg-light">' + formatMarkdownContent(result.analysis) + '</div>';
                 } else {
-                    document.getElementById('majorAnalysisContent').innerHTML = 
+                    document.getElementById('majorAnalysisContent').innerHTML =
                         '<div class="alert alert-danger">' + result.analysis + '</div>';
                 }
             } catch (error) {
@@ -475,6 +476,38 @@
             if (is985) tags += '<span class="badge bg-danger me-1">985</span>';
             if (is211) tags += '<span class="badge bg-warning">211</span>';
             return tags || '-';
+        }
+
+        // 格式化Markdown内容
+        function formatMarkdownContent(content) {
+            return content
+                // 处理标题
+                .replace(/### (.*?)$/gm, '<h5 class="text-primary mt-3 mb-2"><i class="fas fa-chevron-right me-2"></i>$1</h5>')
+                .replace(/## (.*?)$/gm, '<h4 class="text-primary mt-4 mb-3">$1</h4>')
+                .replace(/# (.*?)$/gm, '<h3 class="text-primary mt-4 mb-3">$1</h3>')
+
+                // 处理粗体
+                .replace(/\*\*(.*?)\*\*/g, '<strong class="text-dark">$1</strong>')
+
+                // 处理代码块
+                .replace(/```([\s\S]*?)```/g, '<div class="bg-light p-3 rounded border-start border-primary border-3 my-3"><pre class="mb-0 text-dark">$1</pre></div>')
+
+                // 处理行内代码
+                .replace(/`(.*?)`/g, '<code class="bg-light px-2 py-1 rounded text-primary">$1</code>')
+
+                // 处理列表项
+                .replace(/^- (.*?)$/gm, '<div class="d-flex align-items-start mb-2"><i class="fas fa-circle text-primary me-3 mt-2" style="font-size: 0.5rem;"></i><span>$1</span></div>')
+
+                // 处理分隔线
+                .replace(/^---$/gm, '<hr class="my-4">')
+
+                // 处理换行
+                .replace(/\n\n/g, '</p><p class="mb-3">')
+                .replace(/\n/g, '<br>')
+
+                // 包装在段落中
+                .replace(/^/, '<p class="mb-3">')
+                .replace(/$/, '</p>');
         }
 
         // 页面加载时测试AI连接

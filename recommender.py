@@ -6,22 +6,36 @@ class Recommender:
         self.data_processor = data_processor
     
     def get_recommendation_type(self, user_rank, cutoff_rank):
-        """判断推荐类型：冲/稳/保 - 最终修正版本"""
+        """判断推荐类型：冲/稳/保 - 修正版本，范围更宽松"""
         if pd.isna(cutoff_rank) or pd.isna(user_rank):
             return "未知"
 
         try:
-            # 正确的志愿填报逻辑：
-            # 冲线：选择录取位次比自己好的学校（录取位次更小，更难考上）
-            # 稳妥：选择录取位次与自己接近的学校（录取概率适中）
-            # 保底：选择录取位次比自己差的学校（录取位次更大，容易考上）
+            # 用户建议的志愿填报逻辑，但范围适当放宽：
+            # 核心范围：冲线8500-9500，稳妥9500-10500，保底10500-13000
+            # 但也要包含更好和更差的学校作为参考
 
-            if cutoff_rank <= user_rank * 0.85:  # 录取位次比用户位次好15%以上 - 冲线
+            # 核心冲线范围
+            chong_core_min = user_rank - 1500  # 比用户好1500名
+            chong_core_max = user_rank - 500   # 比用户好500名
+
+            # 核心稳妥范围
+            wen_core_min = user_rank - 500     # 比用户好500名
+            wen_core_max = user_rank + 500     # 比用户差500名
+
+            # 核心保底范围
+            bao_core_min = user_rank + 500     # 比用户差500名
+            bao_core_max = user_rank + 3000    # 比用户差3000名
+
+            # 分类逻辑（包含扩展范围）
+            if cutoff_rank <= chong_core_max:  # 位次比冲线上限还好的，都算冲线
                 return "冲"
-            elif cutoff_rank <= user_rank * 1.15:  # 录取位次在用户位次的85%-115%范围 - 稳妥
+            elif cutoff_rank <= wen_core_max:  # 稳妥范围
                 return "稳"
-            else:  # 录取位次比用户位次差15%以上 - 保底
+            elif cutoff_rank <= bao_core_max + 2000:  # 保底范围（适当扩展）
                 return "保"
+            else:
+                return "保"  # 更差的学校也算保底，给用户更多选择
         except:
             return "未知"
     
@@ -94,25 +108,57 @@ class Recommender:
                 df = df[df['major_name'].str.contains('|'.join(filters['majors']), na=False)]
                 print(f"专业筛选后: {len(df)}条")
 
-        # 位次范围筛选 - 考虑年份差异，适当放宽范围
-        # 冲线：用户位次的0.5-1.2倍，稳妥：0.8-1.5倍，保底：1.2-3倍
-        min_rank = max(1, int(user_rank * 0.3))  # 最小位次
-        max_rank = int(user_rank * 3.0)          # 最大位次
+        # 位次范围筛选 - 扩大范围以充分利用数据
+        # 包含更多冲线和保底选择，让用户有更多选择
+        min_rank = max(1, int(user_rank * 0.6))   # 最小位次（更多冲线选择）
+        max_rank = int(user_rank * 1.8)           # 最大位次（更多保底选择）
 
         df = df[(df['cutoff_rank'] >= min_rank) & (df['cutoff_rank'] <= max_rank)]
 
         print(f"位次范围筛选后: {len(df)}条，用户位次: {user_rank}，筛选范围: {min_rank}-{max_rank}")
 
-        # 如果数据太少，放宽范围
-        if len(df) < 10:
-            print("数据量过少，放宽位次范围...")
-            min_rank = max(1, int(user_rank * 0.1))
-            max_rank = int(user_rank * 5.0)
+        # 数据分布分析
+        if len(df) > 0:
+            rank_stats = df['cutoff_rank'].describe()
+            print(f"📊 位次分布: 最小{int(rank_stats['min'])}, 最大{int(rank_stats['max'])}, 中位数{int(rank_stats['50%'])}")
+
+            # 分析冲稳保分布
+            chong_count = len(df[df['cutoff_rank'] <= user_rank * 0.88])
+            wen_count = len(df[(df['cutoff_rank'] > user_rank * 0.88) & (df['cutoff_rank'] <= user_rank * 1.11)])
+            bao_count = len(df[df['cutoff_rank'] > user_rank * 1.11])
+            print(f"📈 推荐分布: 冲{chong_count}个, 稳{wen_count}个, 保{bao_count}个")
+
+        # 如果数据太少，逐步放宽范围
+        if len(df) < 50:  # 提高阈值，确保有足够选择
+            print("数据量过少，逐步放宽位次范围...")
+
+            # 第一次放宽：扩大到0.4-2.5倍
+            min_rank = max(1, int(user_rank * 0.4))
+            max_rank = int(user_rank * 2.5)
             df = self.data_processor.merged_df.copy()
             df['cutoff_rank'] = pd.to_numeric(df['cutoff_rank'], errors='coerce')
             df = df.dropna(subset=['cutoff_rank'])
+
+            # 重新应用科目筛选
+            if track and 'track' in df.columns:
+                df = df[df['track'] == track]
+
             df = df[(df['cutoff_rank'] >= min_rank) & (df['cutoff_rank'] <= max_rank)]
-            print(f"放宽后数据量: {len(df)}条")
+            print(f"第一次放宽后数据量: {len(df)}条，范围: {min_rank}-{max_rank}")
+
+            # 如果还是太少，进一步放宽
+            if len(df) < 30:
+                min_rank = max(1, int(user_rank * 0.2))
+                max_rank = int(user_rank * 4.0)
+                df = self.data_processor.merged_df.copy()
+                df['cutoff_rank'] = pd.to_numeric(df['cutoff_rank'], errors='coerce')
+                df = df.dropna(subset=['cutoff_rank'])
+
+                if track and 'track' in df.columns:
+                    df = df[df['track'] == track]
+
+                df = df[(df['cutoff_rank'] >= min_rank) & (df['cutoff_rank'] <= max_rank)]
+                print(f"第二次放宽后数据量: {len(df)}条，范围: {min_rank}-{max_rank}")
 
         return df
     
