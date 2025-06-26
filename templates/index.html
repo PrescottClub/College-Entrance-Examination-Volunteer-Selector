@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高考志愿规划助手</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 class="text-center my-4">🎓 高考志愿规划助手 <small class="text-muted">AI智能版</small></h1>
+        
+        <!-- 步骤指示器 -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="d-flex justify-content-center">
+                    <div class="step-indicator">
+                        <div class="step active" id="step1">1. 上传数据</div>
+                        <div class="step" id="step2">2. 输入信息</div>
+                        <div class="step" id="step3">3. 查看结果</div>
+                        <div class="step" id="step4">4. AI分析</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- 左侧：文件上传和参数输入 -->
+            <div class="col-md-4">
+                <!-- 文件上传区域 -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h5>📁 数据文件上传</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="uploadForm" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label class="form-label">一分一档表 (.xlsx)</label>
+                                <input type="file" class="form-control" name="score_rank_file" accept=".xlsx,.xls">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">最低分数线 (.xlsx)</label>
+                                <input type="file" class="form-control" name="cutoff_file" accept=".xlsx,.xls">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">招生计划 (.xlsx)</label>
+                                <input type="file" class="form-control" name="plan_file" accept=".xlsx,.xls">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">上传并处理数据</button>
+                        </form>
+                        <div id="uploadStatus" class="mt-2"></div>
+                    </div>
+                </div>
+
+                <!-- 参数输入区域 -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h5>📊 考生信息</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">位次 *</label>
+                            <input type="number" id="userRank" class="form-control" placeholder="请输入你的位次">
+                            <small class="text-muted">或者输入分数自动转换</small>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">分数转位次</label>
+                            <div class="input-group">
+                                <input type="number" id="userScore" class="form-control" placeholder="输入分数">
+                                <button class="btn btn-outline-secondary" id="convertBtn">转换</button>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">科目 *</label>
+                            <select id="track" class="form-select">
+                                <option value="物理">物理</option>
+                                <option value="历史">历史</option>
+                            </select>
+                        </div>
+
+                        <h6>筛选条件 (可选)</h6>
+                        
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="is985">
+                                <label class="form-check-label" for="is985">仅显示985院校</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="is211">
+                                <label class="form-check-label" for="is211">仅显示211院校</label>
+                            </div>
+                        </div>
+
+                        <button id="recommendBtn" class="btn btn-success w-100" disabled>获取推荐</button>
+                    </div>
+                </div>
+
+                <!-- AI状态指示器 -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h5>🤖 AI状态</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="aiStatus">
+                            <button class="btn btn-outline-info btn-sm" onclick="testDeepSeek()">测试AI连接</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧：结果展示 -->
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>🎯 推荐结果</h5>
+                        <div id="resultSummary" class="text-muted small"></div>
+                    </div>
+                    <div class="card-body">
+                        <div id="loadingIndicator" class="text-center d-none">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">加载中...</span>
+                            </div>
+                            <p>正在生成推荐...</p>
+                        </div>
+                        
+                        <div id="noData" class="text-center text-muted">
+                            <h6>请先上传数据文件并输入考生信息</h6>
+                            <p>系统将为你生成个性化的志愿推荐，并提供AI专业分析</p>
+                        </div>
+
+                        <!-- AI策略建议 -->
+                        <div id="aiStrategy" class="d-none mb-4">
+                            <div class="card bg-light">
+                                <div class="card-header">
+                                    <h6 class="mb-0">🤖 AI志愿填报策略建议</h6>
+                                </div>
+                                <div class="card-body" id="strategyContent">
+                                    <div class="spinner-border spinner-border-sm"></div> AI正在分析中...
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 推荐结果标签页 -->
+                        <div id="resultTabs" class="d-none">
+                            <ul class="nav nav-tabs" id="recommendTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="chong-tab" data-bs-toggle="tab" data-bs-target="#chong" type="button">
+                                        🚀 冲线 <span class="badge bg-danger" id="chongCount">0</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="wen-tab" data-bs-toggle="tab" data-bs-target="#wen" type="button">
+                                        🎯 稳妥 <span class="badge bg-warning" id="wenCount">0</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="bao-tab" data-bs-toggle="tab" data-bs-target="#bao" type="button">
+                                        🛡️ 保底 <span class="badge bg-success" id="baoCount">0</span>
+                                    </button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="recommendTabContent">
+                                <div class="tab-pane fade show active" id="chong" role="tabpanel">
+                                    <div id="chongResults" class="table-responsive mt-3"></div>
+                                </div>
+                                <div class="tab-pane fade" id="wen" role="tabpanel">
+                                    <div id="wenResults" class="table-responsive mt-3"></div>
+                                </div>
+                                <div class="tab-pane fade" id="bao" role="tabpanel">
+                                    <div id="baoResults" class="table-responsive mt-3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 专业分析模态框 -->
+        <div class="modal fade" id="majorAnalysisModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">🤖 AI专业分析</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="majorAnalysisContent">
+                            <div class="spinner-border"></div> AI正在分析专业信息...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 免责声明 -->
+        <div class="alert alert-warning mt-4" role="alert">
+            <h6>⚠️ 免责声明</h6>
+            <p class="mb-0">本系统基于2024年数据进行预测，AI分析仅供参考。实际录取情况可能存在3-7%波动。最终请以广西招生考试院官方投档线为准。</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let dataLoaded = {{ 'true' if data_loaded else 'false' }};
+        let currentUserRank = null;
+
+        // 测试DeepSeek连接
+        async function testDeepSeek() {
+            const statusDiv = document.getElementById('aiStatus');
+            statusDiv.innerHTML = '<div class="spinner-border spinner-border-sm"></div> 测试中...';
+            
+            try {
+                const response = await fetch('/test_deepseek');
+                const result = await response.json();
+                
+                if (result.success) {
+                    statusDiv.innerHTML = '<div class="text-success">✅ AI连接正常</div>';
+                } else {
+                    statusDiv.innerHTML = '<div class="text-danger">❌ AI连接失败: ' + result.message + '</div>';
+                }
+            } catch (error) {
+                statusDiv.innerHTML = '<div class="text-danger">❌ 连接错误: ' + error.message + '</div>';
+            }
+        }
+
+        // 文件上传
+        document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const statusDiv = document.getElementById('uploadStatus');
+            
+            statusDiv.innerHTML = '<div class="spinner-border spinner-border-sm"></div> 正在上传和处理数据...';
+            
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    statusDiv.innerHTML = '<div class="alert alert-success">' + result.message + '</div>';
+                    dataLoaded = true;
+                    document.getElementById('recommendBtn').disabled = false;
+                    document.getElementById('step1').classList.add('completed');
+                    document.getElementById('step2').classList.add('active');
+                } else {
+                    statusDiv.innerHTML = '<div class="alert alert-danger">' + result.message + '</div>';
+                }
+            } catch (error) {
+                statusDiv.innerHTML = '<div class="alert alert-danger">上传失败: ' + error.message + '</div>';
+            }
+        });
+
+        // 分数转位次
+        document.getElementById('convertBtn').addEventListener('click', async function() {
+            if (!dataLoaded) {
+                alert('请先上传数据文件');
+                return;
+            }
+            
+            const score = document.getElementById('userScore').value;
+            if (!score) {
+                alert('请输入分数');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/score_to_rank', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        score: parseInt(score),
+                        track: document.getElementById('track').value
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    document.getElementById('userRank').value = result.rank;
+                } else {
+                    alert(result.message);
+                }
+            } catch (error) {
+                alert('转换失败: ' + error.message);
+            }
+        });
+
+        // 获取推荐
+        document.getElementById('recommendBtn').addEventListener('click', async function() {
+            const rank = document.getElementById('userRank').value;
+            const track = document.getElementById('track').value;
+            
+            if (!rank) {
+                alert('请输入位次');
+                return;
+            }
+            
+            currentUserRank = parseInt(rank);
+            
+            // 显示加载指示器
+            document.getElementById('loadingIndicator').classList.remove('d-none');
+            document.getElementById('noData').style.display = 'none';
+            document.getElementById('aiStrategy').classList.add('d-none');
+            
+            const filters = {
+                rank: parseInt(rank),
+                track: track,
+                is_985: document.getElementById('is985').checked,
+                is_211: document.getElementById('is211').checked
+            };
+            
+            try {
+                const response = await fetch('/recommend', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(filters)
+                });
+                
+                const result = await response.json();
+                
+                document.getElementById('loadingIndicator').classList.add('d-none');
+                
+                if (result.success) {
+                    displayResults(result.data);
+                    
+                    // 显示AI策略建议
+                    if (result.strategy) {
+                        document.getElementById('strategyContent').innerHTML = result.strategy.replace(/\n/g, '<br>');
+                        document.getElementById('aiStrategy').classList.remove('d-none');
+                    }
+                    
+                    document.getElementById('step2').classList.add('completed');
+                    document.getElementById('step3').classList.add('active');
+                } else {
+                    alert(result.message);
+                }
+            } catch (error) {
+                document.getElementById('loadingIndicator').classList.add('d-none');
+                alert('推荐失败: ' + error.message);
+            }
+        });
+
+        // 显示结果
+        function displayResults(data) {
+            const categories = ['冲', '稳', '保'];
+            const tabIds = ['chong', 'wen', 'bao'];
+            const countIds = ['chongCount', 'wenCount', 'baoCount'];
+            
+            categories.forEach((category, index) => {
+                const results = data[category] || [];
+                const tabId = tabIds[index];
+                const countId = countIds[index];
+                
+                document.getElementById(countId).textContent = results.length;
+                
+                const tableHtml = createResultTable(results, category);
+                document.getElementById(tabId + 'Results').innerHTML = tableHtml;
+            });
+            
+            document.getElementById('resultTabs').classList.remove('d-none');
+            document.getElementById('step3').classList.add('completed');
+            document.getElementById('step4').classList.add('active');
+        }
+
+        // 创建结果表格
+        function createResultTable(results, category) {
+            if (results.length === 0) {
+                return '<p class="text-muted text-center">暂无推荐结果</p>';
+            }
+            
+            let tableHtml = `
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>院校名称</th>
+                            <th>专业组</th>
+                            <th>2024年分数线</th>
+                            <th>位次</th>
+                            <th>风险评估</th>
+                            <th>985/211</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            results.forEach(item => {
+                const risk = getRiskLevel(item.risk_level);
+                const tags = getSchoolTags(item.is_985, item.is_211);
+                
+                tableHtml += `
+                    <tr>
+                        <td><strong>${item.school_name}</strong></td>
+                        <td>${item.major_group || '-'}</td>
+                        <td>${item.cutoff_score}</td>
+                        <td>${item.cutoff_rank || '-'}</td>
+                        <td>${risk}</td>
+                        <td>${tags}</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-primary" 
+                                    onclick="analyzeMajor('${item.school_name}', '${item.major_group || item.school_name}', ${item.cutoff_rank || 0})">
+                                🤖 AI分析
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            tableHtml += '</tbody></table>';
+            return tableHtml;
+        }
+
+        // AI专业分析
+        async function analyzeMajor(schoolName, majorName, cutoffRank) {
+            if (!currentUserRank) {
+                alert('请先获取推荐结果');
+                return;
+            }
+            
+            const modal = new bootstrap.Modal(document.getElementById('majorAnalysisModal'));
+            document.getElementById('majorAnalysisContent').innerHTML = '<div class="spinner-border"></div> AI正在分析专业信息...';
+            modal.show();
+            
+            try {
+                const response = await fetch('/analyze_major', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        school_name: schoolName,
+                        major_name: majorName,
+                        user_rank: currentUserRank,
+                        cutoff_rank: cutoffRank
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    document.getElementById('majorAnalysisContent').innerHTML = 
+                        '<div class="alert alert-info">' + result.analysis.replace(/\n/g, '<br>') + '</div>';
+                } else {
+                    document.getElementById('majorAnalysisContent').innerHTML = 
+                        '<div class="alert alert-danger">' + result.analysis + '</div>';
+                }
+            } catch (error) {
+                document.getElementById('majorAnalysisContent').innerHTML = 
+                    '<div class="alert alert-danger">分析失败: ' + error.message + '</div>';
+            }
+        }
+
+        // 获取风险等级显示 - 最终修正版本
+        function getRiskLevel(risk) {
+            // 风险值含义（已修正）：
+            // 负值 = 用户位次比录取位次好（低风险，容易录取）
+            // 正值 = 用户位次比录取位次差（高风险，难以录取）
+
+            if (risk <= -0.15) return '<span class="badge bg-success">安全</span>';       // 用户位次好15%以上
+            if (risk <= -0.05) return '<span class="badge bg-info">较安全</span>';        // 用户位次好5-15%
+            if (risk <= 0.15) return '<span class="badge bg-warning">适中</span>';        // 位次相近±15%
+            if (risk <= 0.5) return '<span class="badge bg-warning">有风险</span>';       // 用户位次差15-50%
+            return '<span class="badge bg-danger">高风险</span>';                        // 用户位次差50%以上
+        }
+
+        // 获取学校标签
+        function getSchoolTags(is985, is211) {
+            let tags = '';
+            if (is985) tags += '<span class="badge bg-danger me-1">985</span>';
+            if (is211) tags += '<span class="badge bg-warning">211</span>';
+            return tags || '-';
+        }
+
+        // 页面加载时测试AI连接
+        window.addEventListener('load', function() {
+            testDeepSeek();
+        });
+    </script>
+</body>
+</html> 

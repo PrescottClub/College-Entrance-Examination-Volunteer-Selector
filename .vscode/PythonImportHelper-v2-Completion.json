@@ -1,0 +1,762 @@
+[
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "secure_filename",
+        "importPath": "werkzeug.utils",
+        "description": "werkzeug.utils",
+        "isExtraImport": true,
+        "detail": "werkzeug.utils",
+        "documentation": {}
+    },
+    {
+        "label": "DataProcessor",
+        "importPath": "data_processor",
+        "description": "data_processor",
+        "isExtraImport": true,
+        "detail": "data_processor",
+        "documentation": {}
+    },
+    {
+        "label": "DataProcessor",
+        "importPath": "data_processor",
+        "description": "data_processor",
+        "isExtraImport": true,
+        "detail": "data_processor",
+        "documentation": {}
+    },
+    {
+        "label": "DataProcessor",
+        "importPath": "data_processor",
+        "description": "data_processor",
+        "isExtraImport": true,
+        "detail": "data_processor",
+        "documentation": {}
+    },
+    {
+        "label": "DataProcessor",
+        "importPath": "data_processor",
+        "description": "data_processor",
+        "isExtraImport": true,
+        "detail": "data_processor",
+        "documentation": {}
+    },
+    {
+        "label": "DataProcessor",
+        "importPath": "data_processor",
+        "description": "data_processor",
+        "isExtraImport": true,
+        "detail": "data_processor",
+        "documentation": {}
+    },
+    {
+        "label": "Recommender",
+        "importPath": "recommender",
+        "description": "recommender",
+        "isExtraImport": true,
+        "detail": "recommender",
+        "documentation": {}
+    },
+    {
+        "label": "Recommender",
+        "importPath": "recommender",
+        "description": "recommender",
+        "isExtraImport": true,
+        "detail": "recommender",
+        "documentation": {}
+    },
+    {
+        "label": "VolunteerRecommender",
+        "importPath": "recommender",
+        "description": "recommender",
+        "isExtraImport": true,
+        "detail": "recommender",
+        "documentation": {}
+    },
+    {
+        "label": "Recommender",
+        "importPath": "recommender",
+        "description": "recommender",
+        "isExtraImport": true,
+        "detail": "recommender",
+        "documentation": {}
+    },
+    {
+        "label": "Recommender",
+        "importPath": "recommender",
+        "description": "recommender",
+        "isExtraImport": true,
+        "detail": "recommender",
+        "documentation": {}
+    },
+    {
+        "label": "DeepSeekService",
+        "importPath": "deepseek_service",
+        "description": "deepseek_service",
+        "isExtraImport": true,
+        "detail": "deepseek_service",
+        "documentation": {}
+    },
+    {
+        "label": "DeepSeekService",
+        "importPath": "deepseek_service",
+        "description": "deepseek_service",
+        "isExtraImport": true,
+        "detail": "deepseek_service",
+        "documentation": {}
+    },
+    {
+        "label": "DeepSeekService",
+        "importPath": "deepseek_service",
+        "description": "deepseek_service",
+        "isExtraImport": true,
+        "detail": "deepseek_service",
+        "documentation": {}
+    },
+    {
+        "label": "DeepSeekService",
+        "importPath": "deepseek_service",
+        "description": "deepseek_service",
+        "isExtraImport": true,
+        "detail": "deepseek_service",
+        "documentation": {}
+    },
+    {
+        "label": "UPLOAD_FOLDER",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "MAX_FILE_SIZE",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "allowed_file",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "SCHOOLS_985",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "SCHOOLS_211",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "DEEPSEEK_API_KEY",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "DEEPSEEK_BASE_URL",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "DEEPSEEK_MODEL",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "RISK_THRESHOLD_CHONG",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "RISK_THRESHOLD_WEN",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "OpenAI",
+        "importPath": "openai",
+        "description": "openai",
+        "isExtraImport": true,
+        "detail": "openai",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def index():\n    \"\"\"主页\"\"\"\n    return render_template('index.html', data_loaded=data_loaded)\n@app.route('/upload', methods=['POST'])\ndef upload_files():\n    \"\"\"文件上传接口\"\"\"\n    global data_loaded\n    try:\n        # 检查是否有文件\n        if 'score_rank_file' not in request.files or \\",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "upload_files",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def upload_files():\n    \"\"\"文件上传接口\"\"\"\n    global data_loaded\n    try:\n        # 检查是否有文件\n        if 'score_rank_file' not in request.files or \\\n           'cutoff_file' not in request.files or \\\n           'plan_file' not in request.files:\n            return jsonify({'success': False, 'message': '请上传所有三个Excel文件'})\n        files = {",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "get_recommendations",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def get_recommendations():\n    \"\"\"获取推荐结果\"\"\"\n    if not data_loaded:\n        return jsonify({'success': False, 'message': '请先上传数据文件'})\n    try:\n        data = request.json\n        user_rank = data.get('rank')\n        track = data.get('track')\n        # 验证必填参数\n        if not user_rank or not track:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_major",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def analyze_major():\n    \"\"\"获取专业分析\"\"\"\n    if not data_loaded:\n        return jsonify({'success': False, 'message': '请先上传数据文件'})\n    try:\n        data = request.json\n        school_name = data.get('school_name')\n        major_name = data.get('major_name')\n        user_rank = data.get('user_rank')\n        cutoff_rank = data.get('cutoff_rank')",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "test_deepseek",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def test_deepseek():\n    \"\"\"测试DeepSeek API连接\"\"\"\n    result = deepseek_service.test_connection()\n    return jsonify(result)\n@app.route('/score_to_rank', methods=['POST'])\ndef score_to_rank():\n    \"\"\"分数转位次\"\"\"\n    if not data_loaded:\n        return jsonify({'success': False, 'message': '请先上传数据文件'})\n    try:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "score_to_rank",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def score_to_rank():\n    \"\"\"分数转位次\"\"\"\n    if not data_loaded:\n        return jsonify({'success': False, 'message': '请先上传数据文件'})\n    try:\n        data = request.json\n        score = data.get('score')\n        track = data.get('track', '物理')\n        if not score:\n            return jsonify({'success': False, 'message': '请输入分数'})",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "get_filters",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def get_filters():\n    \"\"\"获取筛选选项\"\"\"\n    if not data_loaded:\n        return jsonify({'success': False, 'message': '请先上传数据文件'})\n    try:\n        cities = data_processor.get_available_cities()\n        majors = data_processor.get_available_majors()\n        return jsonify({\n            'success': True,\n            'cities': cities,",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "get_status",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def get_status():\n    \"\"\"获取系统状态\"\"\"\n    return jsonify({\n        'data_loaded': data_loaded,\n        'message': '数据已加载' if data_loaded else '请上传数据文件'\n    })\nif __name__ == '__main__':\n    print(\"高考志愿规划助手启动中...\")\n    print(\"请在浏览器中访问: http://localhost:5000\")\n    app.run(debug=True, host='0.0.0.0', port=5000)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = Flask(__name__)\napp.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER\napp.config['MAX_CONTENT_LENGTH'] = MAX_FILE_SIZE\n# 确保上传目录存在\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\n# 全局变量\ndata_processor = DataProcessor()\ndeepseek_service = DeepSeekService()\nrecommender = Recommender(data_processor)\ndata_loaded = False",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['UPLOAD_FOLDER']",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER\napp.config['MAX_CONTENT_LENGTH'] = MAX_FILE_SIZE\n# 确保上传目录存在\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\n# 全局变量\ndata_processor = DataProcessor()\ndeepseek_service = DeepSeekService()\nrecommender = Recommender(data_processor)\ndata_loaded = False\n@app.route('/')",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['MAX_CONTENT_LENGTH']",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app.config['MAX_CONTENT_LENGTH'] = MAX_FILE_SIZE\n# 确保上传目录存在\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\n# 全局变量\ndata_processor = DataProcessor()\ndeepseek_service = DeepSeekService()\nrecommender = Recommender(data_processor)\ndata_loaded = False\n@app.route('/')\ndef index():",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "data_processor",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "data_processor = DataProcessor()\ndeepseek_service = DeepSeekService()\nrecommender = Recommender(data_processor)\ndata_loaded = False\n@app.route('/')\ndef index():\n    \"\"\"主页\"\"\"\n    return render_template('index.html', data_loaded=data_loaded)\n@app.route('/upload', methods=['POST'])\ndef upload_files():",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "deepseek_service",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "deepseek_service = DeepSeekService()\nrecommender = Recommender(data_processor)\ndata_loaded = False\n@app.route('/')\ndef index():\n    \"\"\"主页\"\"\"\n    return render_template('index.html', data_loaded=data_loaded)\n@app.route('/upload', methods=['POST'])\ndef upload_files():\n    \"\"\"文件上传接口\"\"\"",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "recommender",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "recommender = Recommender(data_processor)\ndata_loaded = False\n@app.route('/')\ndef index():\n    \"\"\"主页\"\"\"\n    return render_template('index.html', data_loaded=data_loaded)\n@app.route('/upload', methods=['POST'])\ndef upload_files():\n    \"\"\"文件上传接口\"\"\"\n    global data_loaded",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "data_loaded",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "data_loaded = False\n@app.route('/')\ndef index():\n    \"\"\"主页\"\"\"\n    return render_template('index.html', data_loaded=data_loaded)\n@app.route('/upload', methods=['POST'])\ndef upload_files():\n    \"\"\"文件上传接口\"\"\"\n    global data_loaded\n    try:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "allowed_file",
+        "kind": 2,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "def allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "UPLOAD_FOLDER",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "UPLOAD_FOLDER = 'static/uploads'\nMAX_FILE_SIZE = 16 * 1024 * 1024  # 16MB\nALLOWED_EXTENSIONS = {'xlsx', 'xls'}\n# 推荐阈值配置\nRISK_THRESHOLD_CHONG = -0.05  # 冲线阈值 (位次差异百分比)\nRISK_THRESHOLD_WEN = 0.05     # 稳线阈值\n# DeepSeek API 配置\nDEEPSEEK_API_KEY = \"sk-e3788bb3810746c0bf9779e2510dd7aa\"\nDEEPSEEK_BASE_URL = \"https://api.deepseek.com\"\nDEEPSEEK_MODEL = \"deepseek-chat\"  # 或者使用 \"deepseek-reasoner\" 来使用R1模型",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "MAX_FILE_SIZE",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "MAX_FILE_SIZE = 16 * 1024 * 1024  # 16MB\nALLOWED_EXTENSIONS = {'xlsx', 'xls'}\n# 推荐阈值配置\nRISK_THRESHOLD_CHONG = -0.05  # 冲线阈值 (位次差异百分比)\nRISK_THRESHOLD_WEN = 0.05     # 稳线阈值\n# DeepSeek API 配置\nDEEPSEEK_API_KEY = \"sk-e3788bb3810746c0bf9779e2510dd7aa\"\nDEEPSEEK_BASE_URL = \"https://api.deepseek.com\"\nDEEPSEEK_MODEL = \"deepseek-chat\"  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_EXTENSIONS",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "ALLOWED_EXTENSIONS = {'xlsx', 'xls'}\n# 推荐阈值配置\nRISK_THRESHOLD_CHONG = -0.05  # 冲线阈值 (位次差异百分比)\nRISK_THRESHOLD_WEN = 0.05     # 稳线阈值\n# DeepSeek API 配置\nDEEPSEEK_API_KEY = \"sk-e3788bb3810746c0bf9779e2510dd7aa\"\nDEEPSEEK_BASE_URL = \"https://api.deepseek.com\"\nDEEPSEEK_MODEL = \"deepseek-chat\"  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "RISK_THRESHOLD_CHONG",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "RISK_THRESHOLD_CHONG = -0.05  # 冲线阈值 (位次差异百分比)\nRISK_THRESHOLD_WEN = 0.05     # 稳线阈值\n# DeepSeek API 配置\nDEEPSEEK_API_KEY = \"sk-e3788bb3810746c0bf9779e2510dd7aa\"\nDEEPSEEK_BASE_URL = \"https://api.deepseek.com\"\nDEEPSEEK_MODEL = \"deepseek-chat\"  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [\n    '北京大学', '清华大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',\n    '中国人民大学', '北京师范大学', '北京理工大学', '北京航空航天大学',",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "RISK_THRESHOLD_WEN",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "RISK_THRESHOLD_WEN = 0.05     # 稳线阈值\n# DeepSeek API 配置\nDEEPSEEK_API_KEY = \"sk-e3788bb3810746c0bf9779e2510dd7aa\"\nDEEPSEEK_BASE_URL = \"https://api.deepseek.com\"\nDEEPSEEK_MODEL = \"deepseek-chat\"  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [\n    '北京大学', '清华大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',\n    '中国人民大学', '北京师范大学', '北京理工大学', '北京航空航天大学',\n    '中国农业大学', '北京科技大学', '华中科技大学', '武汉大学', '华南理工大学',",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "DEEPSEEK_API_KEY",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "DEEPSEEK_API_KEY = \"sk-e3788bb3810746c0bf9779e2510dd7aa\"\nDEEPSEEK_BASE_URL = \"https://api.deepseek.com\"\nDEEPSEEK_MODEL = \"deepseek-chat\"  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [\n    '北京大学', '清华大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',\n    '中国人民大学', '北京师范大学', '北京理工大学', '北京航空航天大学',\n    '中国农业大学', '北京科技大学', '华中科技大学', '武汉大学', '华南理工大学',\n    '中山大学', '西安交通大学', '哈尔滨工业大学', '天津大学', '南开大学',\n    '山东大学', '中南大学', '湖南大学', '四川大学', '重庆大学', '电子科技大学',",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "DEEPSEEK_BASE_URL",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "DEEPSEEK_BASE_URL = \"https://api.deepseek.com\"\nDEEPSEEK_MODEL = \"deepseek-chat\"  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [\n    '北京大学', '清华大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',\n    '中国人民大学', '北京师范大学', '北京理工大学', '北京航空航天大学',\n    '中国农业大学', '北京科技大学', '华中科技大学', '武汉大学', '华南理工大学',\n    '中山大学', '西安交通大学', '哈尔滨工业大学', '天津大学', '南开大学',\n    '山东大学', '中南大学', '湖南大学', '四川大学', '重庆大学', '电子科技大学',\n    '西北工业大学', '兰州大学', '东北大学', '大连理工大学', '吉林大学',",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "DEEPSEEK_MODEL",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "DEEPSEEK_MODEL = \"deepseek-chat\"  # 或者使用 \"deepseek-reasoner\" 来使用R1模型\n# 985院校列表\nSCHOOLS_985 = [\n    '北京大学', '清华大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',\n    '中国人民大学', '北京师范大学', '北京理工大学', '北京航空航天大学',\n    '中国农业大学', '北京科技大学', '华中科技大学', '武汉大学', '华南理工大学',\n    '中山大学', '西安交通大学', '哈尔滨工业大学', '天津大学', '南开大学',\n    '山东大学', '中南大学', '湖南大学', '四川大学', '重庆大学', '电子科技大学',\n    '西北工业大学', '兰州大学', '东北大学', '大连理工大学', '吉林大学',\n    '厦门大学', '同济大学', '东南大学', '中国海洋大学', '西北农林科技大学',",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "SCHOOLS_985",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "SCHOOLS_985 = [\n    '北京大学', '清华大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',\n    '中国人民大学', '北京师范大学', '北京理工大学', '北京航空航天大学',\n    '中国农业大学', '北京科技大学', '华中科技大学', '武汉大学', '华南理工大学',\n    '中山大学', '西安交通大学', '哈尔滨工业大学', '天津大学', '南开大学',\n    '山东大学', '中南大学', '湖南大学', '四川大学', '重庆大学', '电子科技大学',\n    '西北工业大学', '兰州大学', '东北大学', '大连理工大学', '吉林大学',\n    '厦门大学', '同济大学', '东南大学', '中国海洋大学', '西北农林科技大学',\n    '中央民族大学', '国防科技大学'\n]",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "SCHOOLS_211",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "SCHOOLS_211 = SCHOOLS_985 + [\n    '广西大学', '桂林电子科技大学', '桂林理工大学', '华北电力大学', '河北工业大学',\n    '太原理工大学', '内蒙古大学', '辽宁大学', '延边大学', '东北师范大学',\n    '哈尔滨工程大学', '东北农业大学', '东北林业大学', '华东师范大学',\n    '上海大学', '上海财经大学', '华东理工大学', '东华大学', '上海外国语大学',\n    '第二军医大学', '南京师范大学', '南京理工大学', '河海大学', '南京农业大学',\n    '中国药科大学', '南京航空航天大学', '苏州大学', '安徽大学', '合肥工业大学',\n    '福州大学', '南昌大学', '江南大学', '中国矿业大学', '郑州大学',\n    '华中师范大学', '中国地质大学', '华中农业大学', '暨南大学', '华南师范大学',\n    '海南大学', '西南大学', '西南交通大学', '四川农业大学', '贵州大学',",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "DataProcessor",
+        "kind": 6,
+        "importPath": "data_processor",
+        "description": "data_processor",
+        "peekOfCode": "class DataProcessor:\n    def __init__(self):\n        self.score_rank_df = None      # 一分一档表\n        self.cutoff_df = None          # 最低分数线\n        self.plan_df = None            # 招生计划\n        self.merged_df = None          # 合并后的数据\n    def load_excel_files(self, score_rank_file, cutoff_file, plan_file):\n        \"\"\"加载三个Excel文件\"\"\"\n        try:\n            # 先检查一分一档表的实际结构",
+        "detail": "data_processor",
+        "documentation": {}
+    },
+    {
+        "label": "DeepSeekService",
+        "kind": 6,
+        "importPath": "deepseek_service",
+        "description": "deepseek_service",
+        "peekOfCode": "class DeepSeekService:\n    def __init__(self):\n        self.client = OpenAI(\n            api_key=DEEPSEEK_API_KEY,\n            base_url=DEEPSEEK_BASE_URL\n        )\n    def generate_major_analysis(self, school_name, major_name, user_rank, cutoff_rank):\n        \"\"\"生成专业分析和建议\"\"\"\n        try:\n            prompt = f\"\"\"",
+        "detail": "deepseek_service",
+        "documentation": {}
+    },
+    {
+        "label": "test_fixed_logic",
+        "kind": 2,
+        "importPath": "quick_validate",
+        "description": "quick_validate",
+        "peekOfCode": "def test_fixed_logic():\n    \"\"\"测试修复后的逻辑\"\"\"\n    print(\"🔍 测试修复后的推荐和风险逻辑\")\n    print(\"=\" * 60)\n    recommender = Recommender(None)\n    # 测试用例：用户位次10802\n    user_rank = 10802\n    test_cases = [\n        (5000, \"冲\", \"高风险\"),    # 录取位次更好，应该冲线，高风险\n        (8000, \"冲\", \"有风险\"),    # 录取位次稍好，应该冲线，有风险",
+        "detail": "quick_validate",
+        "documentation": {}
+    },
+    {
+        "label": "test_edge_cases",
+        "kind": 2,
+        "importPath": "quick_validate",
+        "description": "quick_validate",
+        "peekOfCode": "def test_edge_cases():\n    \"\"\"测试边界情况\"\"\"\n    print(\"\\n🧪 测试边界情况\")\n    print(\"=\" * 60)\n    recommender = Recommender(None)\n    # 边界测试用例\n    edge_cases = [\n        (10000, 10000, \"稳\", \"适中\"),    # 位次相同\n        (10000, 8500, \"冲\", \"有风险\"),   # 15%边界（冲线）\n        (10000, 11500, \"稳\", \"较安全\"),  # 15%边界（稳妥）",
+        "detail": "quick_validate",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "quick_validate",
+        "description": "quick_validate",
+        "peekOfCode": "def main():\n    \"\"\"主测试函数\"\"\"\n    print(\"🚨 快速验证修复后的逻辑准确性\")\n    print(\"🚨 这是人生大事，必须确保每个逻辑都正确！\")\n    print(\"=\" * 80)\n    # 测试基本逻辑\n    basic_test = test_fixed_logic()\n    # 测试边界情况\n    edge_test = test_edge_cases()\n    print(\"\\n\" + \"=\" * 80)",
+        "detail": "quick_validate",
+        "documentation": {}
+    },
+    {
+        "label": "Recommender",
+        "kind": 6,
+        "importPath": "recommender",
+        "description": "recommender",
+        "peekOfCode": "class Recommender:\n    def __init__(self, data_processor):\n        self.data_processor = data_processor\n    def get_recommendation_type(self, user_rank, cutoff_rank):\n        \"\"\"判断推荐类型：冲/稳/保 - 最终修正版本\"\"\"\n        if pd.isna(cutoff_rank) or pd.isna(user_rank):\n            return \"未知\"\n        try:\n            # 正确的志愿填报逻辑：\n            # 冲线：选择录取位次比自己好的学校（录取位次更小，更难考上）",
+        "detail": "recommender",
+        "documentation": {}
+    },
+    {
+        "label": "test_deepseek_connection",
+        "kind": 2,
+        "importPath": "test_ai",
+        "description": "test_ai",
+        "peekOfCode": "def test_deepseek_connection():\n    \"\"\"测试DeepSeek API连接\"\"\"\n    print(\"🤖 测试DeepSeek API连接...\")\n    ds = DeepSeekService()\n    result = ds.test_connection()\n    if result['success']:\n        print(f\"✅ DeepSeek API连接成功: {result['message']}\")\n        return True\n    else:\n        print(f\"❌ DeepSeek API连接失败: {result['message']}\")",
+        "detail": "test_ai",
+        "documentation": {}
+    },
+    {
+        "label": "test_volunteer_strategy",
+        "kind": 2,
+        "importPath": "test_ai",
+        "description": "test_ai",
+        "peekOfCode": "def test_volunteer_strategy():\n    \"\"\"测试志愿填报策略生成\"\"\"\n    print(\"\\n📋 测试志愿填报策略生成...\")\n    ds = DeepSeekService()\n    # 模拟推荐数据\n    test_data = {\n        '冲': [\n            {'school_name': '北京大学', 'major_group': '理科试验班'},\n            {'school_name': '清华大学', 'major_group': '理科试验班'}\n        ],",
+        "detail": "test_ai",
+        "documentation": {}
+    },
+    {
+        "label": "test_major_analysis",
+        "kind": 2,
+        "importPath": "test_ai",
+        "description": "test_ai",
+        "peekOfCode": "def test_major_analysis():\n    \"\"\"测试专业分析\"\"\"\n    print(\"\\n🔍 测试专业分析...\")\n    ds = DeepSeekService()\n    result = ds.generate_major_analysis(\n        school_name=\"北京大学\",\n        major_name=\"计算机科学与技术\",\n        user_rank=10000,\n        cutoff_rank=8000\n    )",
+        "detail": "test_ai",
+        "documentation": {}
+    },
+    {
+        "label": "test_data_processing",
+        "kind": 2,
+        "importPath": "test_ai",
+        "description": "test_ai",
+        "peekOfCode": "def test_data_processing():\n    \"\"\"测试数据处理功能\"\"\"\n    print(\"\\n📊 测试数据处理功能...\")\n    dp = DataProcessor()\n    # 检查示例数据文件是否存在\n    test_files = [\n        'static/uploads/score_rank_xlsx',\n        'static/uploads/cutoff_xlsx', \n        'static/uploads/plan_G--2024_.xlsx'\n    ]",
+        "detail": "test_ai",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "test_ai",
+        "description": "test_ai",
+        "peekOfCode": "def main():\n    \"\"\"主测试函数\"\"\"\n    print(\"🚀 开始测试高考志愿规划助手AI功能\\n\")\n    results = []\n    # 测试各个功能\n    results.append(test_deepseek_connection())\n    results.append(test_volunteer_strategy())\n    results.append(test_major_analysis())\n    results.append(test_data_processing())\n    # 总结",
+        "detail": "test_ai",
+        "documentation": {}
+    },
+    {
+        "label": "test_data_loading",
+        "kind": 2,
+        "importPath": "test_guangxi_gaokao",
+        "description": "test_guangxi_gaokao",
+        "peekOfCode": "def test_data_loading():\n    \"\"\"测试数据加载功能\"\"\"\n    print(\"=\" * 60)\n    print(\"🧪 测试数据加载功能\")\n    print(\"=\" * 60)\n    processor = DataProcessor()\n    # 测试文件路径\n    score_rank_file = \"static/uploads/score_rank_xlsx\"\n    cutoff_file = \"static/uploads/cutoff_xlsx\"  \n    plan_file = \"static/uploads/plan_G--2024_.xlsx\"",
+        "detail": "test_guangxi_gaokao",
+        "documentation": {}
+    },
+    {
+        "label": "test_recommendation_system",
+        "kind": 2,
+        "importPath": "test_guangxi_gaokao",
+        "description": "test_guangxi_gaokao",
+        "peekOfCode": "def test_recommendation_system():\n    \"\"\"测试推荐系统\"\"\"\n    print(\"\\n\" + \"=\" * 60)\n    print(\"🎯 测试推荐系统\")\n    print(\"=\" * 60)\n    # 初始化组件\n    processor = DataProcessor()\n    deepseek_service = DeepSeekService()\n    recommender = Recommender(processor, deepseek_service)\n    # 加载数据",
+        "detail": "test_guangxi_gaokao",
+        "documentation": {}
+    },
+    {
+        "label": "test_guangxi_specific_features",
+        "kind": 2,
+        "importPath": "test_guangxi_gaokao",
+        "description": "test_guangxi_gaokao",
+        "peekOfCode": "def test_guangxi_specific_features():\n    \"\"\"测试广西新高考特定功能\"\"\"\n    print(\"\\n\" + \"=\" * 60)\n    print(\"🏫 测试广西新高考特定功能\")\n    print(\"=\" * 60)\n    processor = DataProcessor()\n    recommender = Recommender(processor, None)\n    # 测试新的推荐类型判断\n    test_ranks = [\n        (10000, 9000, \"冲\"),   # 用户位次10000，录取位次9000，应该是冲",
+        "detail": "test_guangxi_gaokao",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "test_guangxi_gaokao",
+        "description": "test_guangxi_gaokao",
+        "peekOfCode": "def main():\n    \"\"\"主测试函数\"\"\"\n    print(\"🚀 广西高考志愿填报系统测试开始\")\n    print(\"=\" * 80)\n    # 测试数据加载\n    if not test_data_loading():\n        print(\"❌ 数据加载测试失败，停止后续测试\")\n        return\n    # 测试推荐系统\n    if not test_recommendation_system():",
+        "detail": "test_guangxi_gaokao",
+        "documentation": {}
+    },
+    {
+        "label": "test_clean_plan_count",
+        "kind": 2,
+        "importPath": "test_plan_count_fix",
+        "description": "test_plan_count_fix",
+        "peekOfCode": "def test_clean_plan_count():\n    \"\"\"测试计划人数清理功能\"\"\"\n    print(\"🧪 测试计划人数清理功能\")\n    print(\"=\" * 50)\n    processor = DataProcessor()\n    # 测试用例\n    test_cases = [\n        (\"3人\", 3),\n        (\"3人4人5人\", 12),  # 3+4+5=12\n        (\"3人3人4人5人3人5人4人3人3人4人3人3人3人6人4人4人2人7人4人4人4人3人6人3人\", 91),  # 实际错误数据",
+        "detail": "test_plan_count_fix",
+        "documentation": {}
+    },
+    {
+        "label": "test_data_loading_with_fix",
+        "kind": 2,
+        "importPath": "test_plan_count_fix",
+        "description": "test_plan_count_fix",
+        "peekOfCode": "def test_data_loading_with_fix():\n    \"\"\"测试修复后的数据加载\"\"\"\n    print(\"\\n🔄 测试修复后的数据加载\")\n    print(\"=\" * 50)\n    processor = DataProcessor()\n    # 测试文件路径\n    score_rank_file = \"static/uploads/score_rank_xlsx\"\n    cutoff_file = \"static/uploads/cutoff_xlsx\"  \n    plan_file = \"static/uploads/plan_G--2024_.xlsx\"\n    # 检查文件是否存在",
+        "detail": "test_plan_count_fix",
+        "documentation": {}
+    },
+    {
+        "label": "test_upload",
+        "kind": 2,
+        "importPath": "test_upload",
+        "description": "test_upload",
+        "peekOfCode": "def test_upload():\n    \"\"\"测试文件上传\"\"\"\n    print(\"🧪 测试文件上传功能\")\n    print(\"=\" * 50)\n    # 检查文件是否存在\n    files_to_check = [\n        \"static/uploads/score_rank_xlsx\",\n        \"static/uploads/cutoff_xlsx\", \n        \"static/uploads/plan_G--2024_.xlsx\"\n    ]",
+        "detail": "test_upload",
+        "documentation": {}
+    },
+    {
+        "label": "test_recommend",
+        "kind": 2,
+        "importPath": "test_upload",
+        "description": "test_upload",
+        "peekOfCode": "def test_recommend():\n    \"\"\"测试推荐功能\"\"\"\n    print(\"\\n🎯 测试推荐功能\")\n    print(\"=\" * 50)\n    try:\n        url = 'http://localhost:5000/recommend'\n        data = {\n            'rank': 10802,\n            'track': '物理'\n        }",
+        "detail": "test_upload",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "test_upload",
+        "description": "test_upload",
+        "peekOfCode": "def main():\n    \"\"\"主测试函数\"\"\"\n    print(\"🚀 文件上传和推荐功能测试\")\n    print(\"=\" * 60)\n    # 测试上传\n    upload_success = test_upload()\n    if upload_success:\n        # 测试推荐\n        recommend_success = test_recommend()\n        if recommend_success:",
+        "detail": "test_upload",
+        "documentation": {}
+    },
+    {
+        "label": "validate_risk_calculation",
+        "kind": 2,
+        "importPath": "validate_accuracy",
+        "description": "validate_accuracy",
+        "peekOfCode": "def validate_risk_calculation():\n    \"\"\"验证风险计算逻辑的准确性\"\"\"\n    print(\"🔍 验证风险计算逻辑\")\n    print(\"=\" * 60)\n    recommender = Recommender(None)\n    # 测试用例：用户位次10802\n    user_rank = 10802\n    test_cases = [\n        (5000, \"冲线\", \"高风险\"),    # 录取位次更好，应该高风险\n        (8000, \"冲线\", \"有风险\"),    # 录取位次稍好，应该有风险",
+        "detail": "validate_accuracy",
+        "documentation": {}
+    },
+    {
+        "label": "validate_recommendation_logic",
+        "kind": 2,
+        "importPath": "validate_accuracy",
+        "description": "validate_accuracy",
+        "peekOfCode": "def validate_recommendation_logic():\n    \"\"\"验证推荐分类逻辑\"\"\"\n    print(\"\\n🎯 验证推荐分类逻辑\")\n    print(\"=\" * 60)\n    recommender = Recommender(None)\n    user_rank = 10802\n    # 测试冲稳保分类逻辑\n    test_cases = [\n        (5000, \"冲\"),     # 录取位次比用户位次好很多\n        (8000, \"冲\"),     # 录取位次比用户位次好",
+        "detail": "validate_accuracy",
+        "documentation": {}
+    },
+    {
+        "label": "validate_data_processing",
+        "kind": 2,
+        "importPath": "validate_accuracy",
+        "description": "validate_accuracy",
+        "peekOfCode": "def validate_data_processing():\n    \"\"\"验证数据处理的准确性\"\"\"\n    print(\"\\n📊 验证数据处理准确性\")\n    print(\"=\" * 60)\n    processor = DataProcessor()\n    # 检查文件是否存在\n    files = [\n        \"static/uploads/score_rank_xlsx\",\n        \"static/uploads/cutoff_xlsx\", \n        \"static/uploads/plan_G--2024_.xlsx\"",
+        "detail": "validate_accuracy",
+        "documentation": {}
+    },
+    {
+        "label": "validate_end_to_end",
+        "kind": 2,
+        "importPath": "validate_accuracy",
+        "description": "validate_accuracy",
+        "peekOfCode": "def validate_end_to_end():\n    \"\"\"端到端验证推荐系统\"\"\"\n    print(\"\\n🚀 端到端验证推荐系统\")\n    print(\"=\" * 60)\n    # 初始化组件\n    processor = DataProcessor()\n    deepseek_service = DeepSeekService()\n    recommender = Recommender(processor)\n    # 加载数据\n    files = [",
+        "detail": "validate_accuracy",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "validate_accuracy",
+        "description": "validate_accuracy",
+        "peekOfCode": "def main():\n    \"\"\"主验证函数\"\"\"\n    print(\"🚨 高考志愿填报系统数据准确性验证\")\n    print(\"🚨 这是人生大事，必须确保每个逻辑都正确！\")\n    print(\"=\" * 80)\n    # 执行所有验证\n    validations = [\n        (\"风险计算逻辑\", validate_risk_calculation),\n        (\"推荐分类逻辑\", validate_recommendation_logic),\n        (\"数据处理准确性\", validate_data_processing),",
+        "detail": "validate_accuracy",
+        "documentation": {}
+    }
+]
